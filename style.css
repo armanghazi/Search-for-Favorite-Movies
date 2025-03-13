@@ -64,30 +64,7 @@ label {
     min-width: 150px;
     padding: 10px;
     border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 14px;
-    background-color: white;
-    display: flex;
-    align-items: space-between;
-    justify-content: left;
-    gap: 5px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.month-select:hover,
-.year-select:hover {
-    background-color: #f8f9fa;
-    border-color: #007bff;
-}
-
-.certification-checkbox,    
-.genre-checkbox {
-    flex: 1;
-    min-width: 150px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: 3px;
     font-size: 14px;
     background-color: white;
     display: flex;

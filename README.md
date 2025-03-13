@@ -1,6 +1,6 @@
 # Favorite Movie Search
 
-This project is a web application that allows users to search for their favorite movies using The Movie Database (TMDb) API. It offers filters by release date, genre, rating, and certification, including searches based on the Spanish certification standard.
+This project is a web application that allows users to search for their favorite movies using The Movie Database (TMDb) API. It offers filters by release date, genre, rating, and certification, including searches based on the US certification standard.
 
 ## Features
 
