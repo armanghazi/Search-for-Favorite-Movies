@@ -10,7 +10,7 @@ export function createMovieCard(movie, isFavorite) {
         : config.DEFAULT_POSTER;
 
     const overview = movie.overview || 'No overview available.';
-    const tmdbUrl = `https://www.themoviedb.org/movie/${movie.id}`;
+    const tmdbUrl = `https://www.themoviedb.org/movie/${movie.id}?language=en-US`;
     const releaseDate = formatDate(movie.release_date);
 
     movieCard.innerHTML = `
