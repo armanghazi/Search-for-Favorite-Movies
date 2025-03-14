@@ -475,6 +475,49 @@ body[lang="ar"] {
     }
 }
 
+
+/* Footer Styles */
+footer {
+    background-color: #222; /* Dark background */
+    color: #fff; /* White text */
+    padding: 15px 20px;
+    font-size: 1rem;
+}
+
+/* Flexbox container for alignment */
+.footer-container {
+    display: flex;
+    justify-content: space-between; /* Aligns items: left, center, right */
+    align-items: center; /* Centers items vertically */
+    flex-wrap: wrap; /* Prevents overflow on small screens */
+}
+
+/* Footer links in center */
+.footer-links ul {
+    display: flex;
+    gap: 50px; 
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Styling for links */
+.footer-links ul li {
+    display: inline;
+}
+
+.footer-links ul li a {
+    text-decoration: none;
+    color: #ddd; 
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.footer-links ul li a:hover {
+    color: #1e90ff; 
+}
+
+
 @media (max-width: 480px) {
     body {
         padding: 5px;
