@@ -29,7 +29,7 @@ export function displayMovies() {
     if (favorites.length > 0) {
         const favoritesSection = document.createElement('div');
         favoritesSection.className = 'favorites-section';
-        favoritesSection.innerHTML = '<h2>Your favorite movies</h2>';
+        favoritesSection.innerHTML = '<h2>Tus peliculas favoritas</h2>';
         
         // Create grid for favorites
         const favoritesGrid = document.createElement('div');

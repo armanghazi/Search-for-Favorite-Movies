@@ -5,12 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search for favorite movies</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script type="module" src="js/utils/googleTranslate.js"></script>
 </head>
 
 <body>
     <div id="google_translate_element"></div>
+
+    <div class="search-Language">
+        <div class="search-group2">
+            <label>Select your certification and language:</label>
+            <div class="language-selectors">
+                <select id="certification" class="certt" onchange="navigateToLink()">
+                    <option value="">Select a certification</option>
+                    <option value="https://armanghazi.github.io/Search-for-Favorite-Movies/index.html">Search for movies by US content system and language.</option>
+                    <option value="https://armanghazi.github.io/Busqueda-de-peliculas-favoritas/index.html">Search for movies by Spanish content system and language.</option>
+                </select>
+            </div>
+        </div>
+    </div>
 
     <h1>Find your favorite movies</h1>
 
@@ -62,34 +74,53 @@
 
     <div id="results-container"></div>
 
-    <script type="module" src="script.js"></script>
-
-    <footer>
-        <div class="footer-container">
-            <p>&copy; Arman Ghaziaskari Naeini</p>
-    
-            <div class="footer-links">
-                <ul>
-                    <li>
-                        <a href="https://www.linkedin.com/in/arman-ghaziaskari/" aria-label="LinkedIn" target="_blank">
-                            <i class="fa-brands fa-linkedin"></i> LinkedIn
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/armanghazi/" aria-label="GitHub" target="_blank">
-                            <i class="fa-brands fa-github"></i> GitHub
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.kaggle.com/armanghazi" aria-label="Kaggle" target="_blank">
-                            <i class="fa-brands fa-kaggle"></i> Kaggle
-                        </a>
-                    </li>
-                </ul>
-            </div>
-    
-            <p><a href="mailto:ghaziaskari@gmail.com" class="email">ghaziaskari@gmail.com</a></p>
+    <div class="favorites-section" id="favorites-section">
+        <h2>Your favorite movies</h2>
+        <div class="favorites-grid" id="favorites-grid">
         </div>
-    </footer>
+    </div>
+
+    <script type="module" src="script.js"></script>
+    <script>
+        function navigateToLink() {
+            const selectElement = document.getElementById('certification');
+            const selectedValue = selectElement.value;
+            
+            if (selectedValue) {
+                window.open(selectedValue, '_blank'); // Abre el enlace en una nueva pestaña
+            }
+        }
+    </script>
+
+<footer>
+    <div class="footer-container">
+        <p>
+            <a href="https://armanghazi.github.io/portfolio/index.html" aria-label="Website" target="_blank">
+                <i class="fa-brands fa-website"></i> Website
+            </a>
+        </p>
+        <div class="footer-links">
+            <ul>
+                <li>
+                    <a href="https://www.linkedin.com/in/arman-ghaziaskari/" aria-label="LinkedIn" target="_blank">
+                        <i class="fa-brands fa-linkedin"></i> LinkedIn
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/armanghazi/" aria-label="GitHub" target="_blank">
+                        <i class="fa-brands fa-github"></i> GitHub
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.kaggle.com/armanghazi" aria-label="Kaggle" target="_blank">
+                        <i class="fa-brands fa-kaggle"></i> Kaggle
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <p>&copy; Arman Ghaziaskari Naeini</p>
+    </div>
+</footer>
+
 </body>
 </html>

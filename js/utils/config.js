@@ -15,10 +15,10 @@ export const endpoints = {
 };
 
 export const errorMessages = {
-    HTTP_ERROR: (status) => `Error in the request: ${status}`,
-    FETCH_ERROR: 'Error getting data',
-    NO_RESULTS: 'No movies were found matching the criteria.',
-    CERTIFICATION_ERROR: 'No Spanish certifications were found',
-    GENRE_ERROR: 'Error loading genres',
-    DOM_ERROR: (element) => `The element ${element} was not found in the DOM.`
+    HTTP_ERROR: (status) => `Error en la solicitud: ${status}`,
+    FETCH_ERROR: 'Error al obtener los datos',
+    NO_RESULTS: 'No se encontraron películas que coincidan con los criterios.',
+    CERTIFICATION_ERROR: 'No se encontraron certificaciones españolas',
+    GENRE_ERROR: 'Error al cargar los géneros',
+    DOM_ERROR: (element) => `No se encontró el elemento ${element} en el DOM`
 }; 

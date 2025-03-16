@@ -1,7 +1,7 @@
 import { config } from '../utils/config.js';
-import { toggleFavorite } from './toggleFavorite.js';
+import { isFavorite } from './toggleFavorite.js';
 
-export function createMovieCard(movie, isFavorite) {
+export function createMovieCard(movie) {
     const movieCard = document.createElement('div');
     movieCard.className = 'movie-card';
 
@@ -10,36 +10,41 @@ export function createMovieCard(movie, isFavorite) {
         : config.DEFAULT_POSTER;
 
     const overview = movie.overview || 'No overview available.';
-    const tmdbUrl = `https://www.themoviedb.org/movie/${movie.id}?language=en-US`;
-    const releaseDate = formatDate(movie.release_date);
+    const tmdbUrl = `https://www.themoviedb.org/movie/${movie.id}?language=en-US`;    const releaseDate = formatDate(movie.release_date);
+    const isMovieFavorite = isFavorite(movie.id);
+
+    // Crear el botón de favoritos como un elemento separado
+    const favoriteButton = document.createElement('button');
+    favoriteButton.className = `favorite-button ${isMovieFavorite ? 'active' : ''}`;
+    favoriteButton.setAttribute('data-movie-id', movie.id);
+    favoriteButton.innerHTML = isMovieFavorite ? '❤️' : '🤍';
+    
+    // Añadir el evento click directamente al botón
+    favoriteButton.addEventListener('click', () => {
+        window.toggleFavorite(movie);
+    });
 
     movieCard.innerHTML = `
         <img class="movie-poster" src="${posterPath}" alt="${movie.title}">
         <div class="movie-info">
             <div class="movie-header">
                 <h3 class="movie-title">${movie.title}</h3>
-                <button class="favorite-button ${isFavorite ? 'active' : ''}" data-movie-id="${movie.id}">
-                    <i class="fas fa-heart"></i>
-                </button>
             </div>
-            <p class="movie-rating">Rating: ${movie.vote_average.toFixed(2)}/10</p>
+            <p class="movie-rating">Vote Average: ${movie.vote_average.toFixed(2)}/10</p>
             <p class="release-date">Release Date: ${releaseDate}</p>
             <div class="movie-overview">
                 <h4>Overview:</h4>
                 <p>${overview}</p>
             </div>
             <a href="${tmdbUrl}" target="_blank" class="tmdb-button">
-                <i class="fas fa-external-link-alt"></i> Visit on TMDB
+                <i class="fas fa-external-link-alt"></i> Visit in TMDB
             </a>
         </div>
     `;
 
-    // Add event listener to the favorite button
-    const favoriteButton = movieCard.querySelector('.favorite-button');
-    favoriteButton.addEventListener('click', () => {
-        toggleFavorite(movie.id);
-        favoriteButton.classList.toggle('active');
-    });
+    // Insertar el botón de favoritos en el header
+    const movieHeader = movieCard.querySelector('.movie-header');
+    movieHeader.appendChild(favoriteButton);
 
     return movieCard;
 }
@@ -49,3 +54,4 @@ function formatDate(dateString) {
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
     return new Date(dateString).toLocaleDateString(config.LANGUAGE, options);
 }
+
