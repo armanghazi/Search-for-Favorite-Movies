@@ -84,14 +84,22 @@
 
     <script>
         function navigateToLink() {
-            const selectElement = document.getElementById('certification');
-            const selectedValue = selectElement.value;
-            
+            var select = document.getElementById("certification");
+            var selectedValue = select.value;
+    
             if (selectedValue) {
-                window.open(selectedValue, '_blank'); // Abre el enlace en una nueva pestaña
+                window.location.href = selectedValue;
             }
         }
     </script>
+
+
+
+
+
+
+
+
 
 <footer>
     <div class="footer-container">
